@@ -91,42 +91,74 @@ export default function HomePage() {
         >
           {/* All text elements with fixed pixel positioning */}
           <div style={{ width: 226.13, height: 316, left: 372.87, top: 118, position: 'absolute', textAlign: 'center' }}>
-            <SlotMachineText text="W" delay={0.2} charClassName="text-black text-[250px] font-impact font-black" />
+            <SlotMachineText 
+              text="W" 
+              delay={0.2} 
+              charClassName="text-[250px] font-impact font-black" 
+              slotSpeed={25}
+              cyclingColor="#666666"
+              finalColor="#000000"
+              slotUntilTime={1.0}
+            />
           </div>
           <div style={{ width: 226.13, height: 316, left: 199, top: 118, position: 'absolute', textAlign: 'center' }}>
-            <SlotMachineText text="B" delay={0.1} charClassName="text-black text-[250px] font-impact font-black" />
+            <SlotMachineText 
+              text="B" 
+              delay={0.1} 
+              charClassName="text-[250px] font-impact font-black" 
+              slotSpeed={25}
+              cyclingColor="#666666"
+              finalColor="#000000"
+              slotUntilTime={0.75}
+            />
           </div>
           <div style={{ width: 226.13, height: 316, left: 372.87, top: 340, position: 'absolute', textAlign: 'center' }}>
-            <SlotMachineText text="M" delay={0.4} charClassName="text-black text-[250px] font-impact font-black" />
+            <SlotMachineText 
+              text="M" 
+              delay={0.4} 
+              charClassName="text-[250px] font-impact font-black" 
+              slotSpeed={25}
+              cyclingColor="#666666"
+              finalColor="#000000"
+              slotUntilTime={1.5}
+            />
           </div>
           <div style={{ width: 226.13, height: 316, left: 199, top: 340, position: 'absolute', textAlign: 'center' }}>
-            <SlotMachineText text="C" delay={0.3} charClassName="text-black text-[250px] font-impact font-black" />
+            <SlotMachineText 
+              text="C" 
+              delay={0.3} 
+              charClassName="text-[250px] font-impact font-black" 
+              slotSpeed={25}
+              cyclingColor="#666666"
+              finalColor="#000000"
+              slotUntilTime={1.25}
+            />
           </div>
 
           <div style={{left: 0, top: 363, position: 'absolute', textAlign: 'right'}}>
-            <SlotMachineText text="$XRP" delay={0.5} charClassName="text-black text-[30px] font-inter" />
+            <SlotMachineText text="$XRP" delay={0.2} charClassName="text-black text-[30px] font-inter" />
           </div>
           <div style={{left: 764, top: 531, position: 'absolute', textAlign: 'center'}}>
-            <SlotMachineText text="$ S O L" delay={0.6} charClassName="text-black text-[30px] font-inter" />
+            <SlotMachineText text="$ S O L" delay={0.25} charClassName="text-black text-[30px] font-inter" />
           </div>
           <div style={{left: 423, top: 66, position: 'absolute', textAlign: 'center'}}>
-            <SlotMachineText text="+9.3" delay={0.7} charClassName="text-black text-[24px] font-inter" />
+            <SlotMachineText text="+9.3" delay={0.3} charClassName="text-black text-[24px] font-inter" />
           </div>
           <div style={{left: 394, top: 32, position: 'absolute', textAlign: 'right'}}>
-            <SlotMachineText text="ECL" delay={0.8} charClassName="text-black text-[30px] font-inter" />
+            <SlotMachineText text="ECL" delay={0.35} charClassName="text-black text-[30px] font-inter" />
           </div>
           <div style={{left: 129, top: 77, position: 'absolute', textAlign: 'right'}}>
-            <SlotMachineText text="OKLO" delay={0.9} charClassName="text-black text-[30px] font-inter" />
+            <SlotMachineText text="OKLO" delay={0.4} charClassName="text-black text-[30px] font-inter" />
           </div>
           <div style={{left: 0, top: 33, position: 'absolute'}}>
-            <SlotMachineText text="HEX # 880808" delay={1.0} charClassName="text-black text-[20px] font-inter" />
-            <SlotMachineText text="HEX # 002147" delay={1.05} charClassName="text-black text-[20px] font-inter" />
+            <SlotMachineText text="HEX # 880808" delay={0.45} charClassName="text-black text-[20px] font-inter" />
+            <SlotMachineText text="HEX # 002147" delay={0.5} charClassName="text-black text-[20px] font-inter" />
           </div>
           <div style={{ position: 'absolute', top: 627, left: '50%', transform: 'translateX(-50%)', display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Blackwell" delay={1.4} charClassName="text-black text-[30px] font-inter" /></div>
-                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Capital" delay={1.45} charClassName="text-black text-[30px] font-inter" /></div>
-                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Management" delay={1.5} charClassName="text-black text-[30px] font-inter" /></div>
+                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Blackwell" delay={0.55} charClassName="text-black text-[30px] font-inter" enableSlotEffect={false} /></div>
+                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Capital" delay={0.6} charClassName="text-black text-[30px] font-inter" enableSlotEffect={false} /></div>
+                  <div style={{height: 35, display: 'flex', alignItems: 'center'}}><SlotMachineText text="Management" delay={0.65} charClassName="text-black text-[30px] font-inter" enableSlotEffect={false} /></div>
               </div>
               <div>
                 <Link href="/thesis" style={{ textDecoration: 'none', display: 'block', width: 113, height: 35 }}>
@@ -145,7 +177,7 @@ export default function HomePage() {
                     className="group"
                   >
                     <div className="group-hover:text-black transition-colors duration-200">
-                      <SlotMachineText text="[THESIS]" delay={1.1} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" />
+                      <SlotMachineText text="[THESIS]" delay={0.7} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" enableSlotEffect={false} />
                     </div>
                     <motion.div 
                       className="absolute bottom-0 left-0 h-0.5 bg-black"
@@ -171,7 +203,7 @@ export default function HomePage() {
                     className="group"
                   >
                     <div className="group-hover:text-black transition-colors duration-200">
-                      <SlotMachineText text="[FUNDS]" delay={1.2} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" />
+                      <SlotMachineText text="[FUNDS]" delay={0.75} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" enableSlotEffect={false} />
                     </div>
                     <motion.div 
                       className="absolute bottom-0 left-0 h-0.5 bg-black"
@@ -197,7 +229,7 @@ export default function HomePage() {
                     className="group"
                   >
                     <div className="group-hover:text-black transition-colors duration-200">
-                      <SlotMachineText text="[CONTACT]" delay={1.3} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" />
+                      <SlotMachineText text="[CONTACT]" delay={0.8} charClassName="text-[#878787] group-hover:text-black text-[25px] font-inter transition-colors duration-200" enableSlotEffect={false} />
                     </div>
                     <motion.div 
                       className="absolute bottom-0 left-0 h-0.5 bg-black"
@@ -209,18 +241,18 @@ export default function HomePage() {
                 </Link>
               </div>
           </div>
-          <div style={{left: 710, top: 485, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="+4.3" delay={1.5} charClassName="text-black text-[24px] font-inter" /></div>
-          <div style={{width: 66, left: 696, top: 449, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="SMR" delay={1.6} charClassName="text-black text-[30px] font-inter" /></div>
-          <div style={{left: 729, top: 769, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="SQM" delay={1.7} charClassName="text-black text-[30px] font-inter" /></div>
-          <div style={{left: 762, top: 295, position: 'absolute', textAlign: 'center' }}><SlotMachineText text="M N S T" delay={1.8} charClassName="text-black text-[30px] font-inter" /></div>
+          <div style={{left: 710, top: 485, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="+4.3" delay={0.85} charClassName="text-black text-[24px] font-inter" /></div>
+          <div style={{width: 66, left: 696, top: 449, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="SMR" delay={0.9} charClassName="text-black text-[30px] font-inter" /></div>
+          <div style={{left: 729, top: 769, position: 'absolute', textAlign: 'right' }}><SlotMachineText text="SQM" delay={0.95} charClassName="text-black text-[30px] font-inter" /></div>
+          <div style={{left: 762, top: 295, position: 'absolute', textAlign: 'center' }}><SlotMachineText text="M N S T" delay={1.0} charClassName="text-black text-[30px] font-inter" /></div>
           
           {/* Date container with relative positioning for text and box */}
           <div style={{left: 649, top: 35, position: 'absolute', textAlign: 'right'}}>
-            <SlotMachineText text={getCurrentDate()} delay={1.9} charClassName="text-black text-[25px] font-inter" />
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              transition={{ delay: 1.9, duration: 0.5 }}
+            <SlotMachineText text={getCurrentDate()} delay={1.05} charClassName="text-black text-[25px] font-inter" />
+                          <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                transition={{ delay: 1.05, duration: 0.5 }}
               style={{
                 width: 163, 
                 height: 34, 
@@ -233,13 +265,13 @@ export default function HomePage() {
           </div>
           
           <div style={{left: 667, top: 71, position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <SlotMachineText text="37.8712° N" delay={2.1} charClassName="text-black text-[20px] font-inter" />
-            <SlotMachineText text="122.2555° W" delay={2.15} charClassName="text-black text-[20px] font-inter" />
-            <SlotMachineText text="# 771" delay={2.2} charClassName="text-black text-[20px] font-inter" />
+            <SlotMachineText text="37.8712° N" delay={1.1} charClassName="text-black text-[20px] font-inter" />
+            <SlotMachineText text="122.2555° W" delay={1.15} charClassName="text-black text-[20px] font-inter" />
+            <SlotMachineText text="# 771" delay={1.2} charClassName="text-black text-[20px] font-inter" />
           </div>
           <div style={{ width: 232.08, height: 67, left: 5, top: 828, position: 'absolute', transform: 'rotate(-90deg)', transformOrigin: 'top left' }}>
-            <SlotMachineText text="40.7069° N" delay={2.5} charClassName="text-black text-[25px] font-inter" />
-            <SlotMachineText text="74.0113° W" delay={2.55} charClassName="text-black text-[25px] font-inter" />
+            <SlotMachineText text="40.7069° N" delay={1.25} charClassName="text-black text-[25px] font-inter" />
+            <SlotMachineText text="74.0113° W" delay={1.3} charClassName="text-black text-[25px] font-inter" />
           </div>
         </div>
       </motion.div>
