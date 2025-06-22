@@ -41,11 +41,11 @@ export default function HomePage() {
         {/* Images positioned relative to viewport width - now part of main animation */}
         <div
           style={{ 
-            width: 745 * 0.8, 
-            height: 915 * 0.8, 
+            width: 745 * 0.9, 
+            height: 915 * 0.9, 
             position: 'absolute',
-            left: 'calc(50vw - 1000px)', // Move left image much further left
-            top: '40vh',
+            left: 'calc(50vw - 975px)', // Move left image much further left
+            top: '50vh',
             transform: 'translateY(-50%)',
             marginTop: 40
           }}>
@@ -58,7 +58,7 @@ export default function HomePage() {
             height: 1148 * 0.8, 
             position: 'absolute',
             left: 'calc(50vw + 400px + 100px)', // Bring right image closer to center
-            top: '50vh',
+            top: '60vh',
             transform: 'translateY(-50%)',
             marginTop: -400
           }}>
