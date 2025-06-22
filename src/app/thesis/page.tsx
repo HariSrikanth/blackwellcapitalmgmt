@@ -1,113 +1,140 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion, type Easing } from "framer-motion";
 import Link from "next/link";
-import SlotMachineText from '~/components/SlotMachineText';
+import Image from "next/image";
 
 export default function ThesisPage() {
+  const sheetVariants = {
+    hidden: { y: '100%' },
+    visible: { y: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as Easing } },
+  };
+
+  const imageVariants = {
+    hidden: { x: '100%' },
+    visible: { x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as Easing, delay: 0.2 } },
+  };
+  
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1, delay: 0.5 } },
+  };
+
+  const lineHeight = 75;
+  const bottomPadding = 17;
+  const largeFontSize = 125;
+  const mediumFontSize = 20;
+  const smallFontSize = 15;
+
   return (
     <div style={{
+      background: '#000000',
       width: '100vw',
       height: '100vh',
       display: 'flex',
-      alignItems: 'center',
       justifyContent: 'center',
-      background: '#F5F5F5',
+      alignItems: 'flex-end',
+      fontFamily: "'Helvetica Neue', sans-serif",
       overflow: 'hidden',
-      position: 'relative'
+      paddingRight: '150px',
+      boxSizing: 'border-box'
     }}>
-      <motion.div 
-        initial={{ scale: 1.2, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
-        style={{
-          width: '800px',
-          height: '600px',
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center'
-        }}
-      >
-        {/* Back button */}
-        <Link href="/" style={{ position: 'absolute', top: '20px', left: '20px', textDecoration: 'none' }}>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              padding: '10px 20px',
-              border: '2px solid black',
-              background: 'white',
-              cursor: 'pointer'
-            }}
-          >
-            <SlotMachineText text="← BACK" delay={0.1} charClassName="text-black text-[20px] font-inter" />
-          </motion.div>
-        </Link>
+      <div style={{
+        position: 'relative',
+        width: 1280,
+        height: 1024,
+        transform: 'scale(0.8)',
+        transformOrigin: 'bottom'
+      }}>
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          style={{ position: 'absolute', left: 894, top: 50, zIndex: 10 }}
+        >
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <p style={{ fontSize: 20, color: '#FFFFFF' }}>back to home</p>
+          </Link>
+        </motion.div>
 
-        {/* Main title */}
-        <div style={{ marginBottom: '40px' }}>
-          <SlotMachineText text="THESIS" delay={0.2} charClassName="text-black text-[80px] font-impact font-black" />
-        </div>
+        <motion.div
+          variants={sheetVariants}
+          initial="hidden"
+          animate="visible"
+          style={{
+            position: 'absolute',
+            left: 224,
+            top: 116,
+            width: 804,
+            height: 908,
+          }}
+        >
+          <div style={{ position: 'absolute', width: '100%', height: '100%', background: 'white' }}></div>
+          <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%' }}>
+            <div style={{ position: 'absolute', left: 22.5, top: 0, width: 1, height: '100%', background: 'black' }}></div>
+            <div style={{ position: 'absolute', right: 22.5, top: 0, width: 1, height: '99.67%', background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 2 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 3 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 4 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 5 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 6 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 7 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 8 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+            <div style={{ position: 'absolute', top: 4 + 9 * lineHeight, width: '100%', height: 1, background: 'black' }}></div>
+          </div>
+          
+          <div style={{ position: 'absolute', top: 0, left: 0, color: 'black' }}>
+            <p style={{ position: 'absolute', left: 27, top: 26, fontSize: mediumFontSize }}>THESIS</p>
+            <div style={{ position: 'absolute', left: 27, top: 4 + lineHeight + 4, fontSize: 12, lineHeight: '1.2' }}>
+              <p>invest with</p>
+              <p>insight & confidence</p>
+            </div>
+            <p style={{ position: 'absolute', left: 338, top: 4 + (2 * lineHeight) - mediumFontSize - bottomPadding, fontSize: mediumFontSize }}>(01)</p>
+            <p style={{ position: 'absolute', left: 126, top: 4 + (3 * lineHeight), fontSize: mediumFontSize }}>(02)</p>
+            <p style={{ position: 'absolute', left: 573, top: 4 + (5 * lineHeight) - mediumFontSize, fontSize: mediumFontSize }}>(03)</p>
+            <p style={{ position: 'absolute', left: 322, top: 4 + (7 * lineHeight) - (mediumFontSize + bottomPadding), fontSize: mediumFontSize }}>(04)</p>
+            <p style={{ position: 'absolute', left: 732, top: 4 + (9 * lineHeight) - mediumFontSize - bottomPadding, fontSize: mediumFontSize }}>(05)</p>
 
-        {/* Content */}
-        <div style={{ maxWidth: '600px', lineHeight: '1.6' }}>
-          <div style={{ marginBottom: '30px' }}>
-            <SlotMachineText 
-              text="Our Investment Philosophy" 
-              delay={0.5} 
-              charClassName="text-black text-[32px] font-inter font-bold" 
-            />
-          </div>
-          
-          <div style={{ marginBottom: '20px' }}>
-            <SlotMachineText 
-              text="We believe in identifying undervalued assets across traditional and emerging markets," 
-              delay={0.8} 
-              charClassName="text-black text-[18px] font-inter" 
-            />
-          </div>
-          
-          <div style={{ marginBottom: '20px' }}>
-            <SlotMachineText 
-              text="focusing on long-term value creation through rigorous fundamental analysis" 
-              delay={1.1} 
-              charClassName="text-black text-[18px] font-inter" 
-            />
-          </div>
-          
-          <div style={{ marginBottom: '20px' }}>
-            <SlotMachineText 
-              text="and strategic positioning in high-growth sectors including technology," 
-              delay={1.4} 
-              charClassName="text-black text-[18px] font-inter" 
-            />
-          </div>
-          
-          <div>
-            <SlotMachineText 
-              text="renewable energy, and digital assets." 
-              delay={1.7} 
-              charClassName="text-black text-[18px] font-inter" 
-            />
-          </div>
-        </div>
+            <p style={{ position: 'absolute', left: 32, top: 4 + (4 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>think</p>
+            <p style={{ position: 'absolute', left: 27, top: 4 + (8 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>speed</p>
+            
+            <div style={{ position: 'absolute', top: 0, left: 0, fontSize: largeFontSize, fontWeight: '500' }}>
+                <p style={{ position: 'absolute', left: 619, top: 4 + (2 * lineHeight) - largeFontSize - bottomPadding }}>be</p>
+                <p style={{ position: 'absolute', left: 46, top: 4 + (6 * lineHeight) - largeFontSize - bottomPadding }}>and</p>
+                <p style={{ position: 'absolute', left: 619, top: 4 + (6 * lineHeight) - largeFontSize - bottomPadding }}>be</p>
+                <p style={{ position: 'absolute', left: 355, top: 4 + (8 * lineHeight) - largeFontSize - bottomPadding }}>correct</p>
+                <p style={{ position: 'absolute', left: 175, top: 4 + (4 * lineHeight) - largeFontSize - bottomPadding }}>different</p>
+            </div>
 
-        {/* Key principles */}
-        <div style={{ marginTop: '40px', display: 'flex', gap: '40px' }}>
-          <div style={{ textAlign: 'center' }}>
-            <SlotMachineText text="RESEARCH" delay={2.0} charClassName="text-[#878787] text-[20px] font-inter" />
+            <div style={{ position: 'absolute', left: 37, top: 9 * lineHeight + 10, width: 377, fontSize: 20, lineHeight: '1.4' }}>
+                <p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.”</p>
+            </div>
+
+            <div style={{ position: 'absolute', left: 657, top: 710, fontSize: 100, fontFamily: "'Impact', sans-serif" }}>
+                <p style={{ position: 'absolute', left: 56.6, top: 0 }}>W</p>
+                <p style={{ position: 'absolute', left: -18.6, top: 0 }}>B</p>
+                <p style={{ position: 'absolute', left: 56.6, top: 97.17 }}>P</p>
+                <p style={{ position: 'absolute', left: -18.6, top: 87.69 }}>C</p>
+            </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <SlotMachineText text="DISCIPLINE" delay={2.2} charClassName="text-[#878787] text-[20px] font-inter" />
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SlotMachineText text="VALUE" delay={2.4} charClassName="text-[#878787] text-[20px] font-inter" />
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        <motion.div
+          variants={imageVariants}
+          initial="hidden"
+          animate="visible"
+          style={{
+            position: 'absolute',
+            left: 1127,
+            top: 423,
+            width: 459,
+            height: 619,
+          }}
+        >
+          <Image src="/images/thesis-image.png" alt="Thesis page image" fill style={{ objectFit: 'cover' }} />
+        </motion.div>
+      </div>
     </div>
   );
 } 
