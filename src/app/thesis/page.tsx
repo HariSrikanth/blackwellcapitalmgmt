@@ -49,7 +49,7 @@ export default function ThesisPage() {
           variants={fadeIn}
           initial="hidden"
           animate="visible"
-          style={{ position: 'absolute', left: 894, top: 50, zIndex: 10 }}
+          style={{ position: 'absolute', left: 894, top: 80, zIndex: 10 }}
         >
           <Link href="/" style={{ textDecoration: 'none' }}>
             <p style={{ fontSize: 20, color: '#FFFFFF' }}>back to home</p>
@@ -90,11 +90,11 @@ export default function ThesisPage() {
               <p>invest with</p>
               <p>insight & confidence</p>
             </div>
-            <p style={{ position: 'absolute', left: 338, top: 4 + (2 * lineHeight) - mediumFontSize - bottomPadding, fontSize: mediumFontSize }}>(01)</p>
-            <p style={{ position: 'absolute', left: 126, top: 4 + (3 * lineHeight), fontSize: mediumFontSize }}>(02)</p>
-            <p style={{ position: 'absolute', left: 573, top: 4 + (5 * lineHeight) - mediumFontSize, fontSize: mediumFontSize }}>(03)</p>
-            <p style={{ position: 'absolute', left: 322, top: 4 + (7 * lineHeight) - (mediumFontSize + bottomPadding), fontSize: mediumFontSize }}>(04)</p>
-            <p style={{ position: 'absolute', left: 732, top: 4 + (9 * lineHeight) - mediumFontSize - bottomPadding, fontSize: mediumFontSize }}>(05)</p>
+            <p style={{ position: 'absolute', left: 338, top: -14 + (2 * lineHeight) - (mediumFontSize / 2), fontSize: mediumFontSize }}>(01)</p>
+            <p style={{ position: 'absolute', left: 126, top: 14 + (3 * lineHeight) - (mediumFontSize / 2), fontSize: mediumFontSize }}>(02)</p>
+            <p style={{ position: 'absolute', left: 573, top: -14 + (6 * lineHeight) - (mediumFontSize / 2), fontSize: mediumFontSize }}>(03)</p>
+            <p style={{ position: 'absolute', left: 322, top: 14 + (7 * lineHeight) - (mediumFontSize / 2), fontSize: mediumFontSize }}>(04)</p>
+            <p style={{ position: 'absolute', left: 732, top: 14 + (9 * lineHeight) - (mediumFontSize / 2), fontSize: mediumFontSize }}>(05)</p>
 
             <p style={{ position: 'absolute', left: 32, top: 4 + (4 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>think</p>
             <p style={{ position: 'absolute', left: 27, top: 4 + (8 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>speed</p>
@@ -107,15 +107,15 @@ export default function ThesisPage() {
                 <p style={{ position: 'absolute', left: 175, top: 4 + (4 * lineHeight) - largeFontSize - bottomPadding }}>different</p>
             </div>
 
-            <div style={{ position: 'absolute', left: 37, top: 9 * lineHeight + 10, width: 377, fontSize: 20, lineHeight: '1.4' }}>
+            <div style={{ position: 'absolute', left: 37, top: 9 * lineHeight + 10, width: 377, fontSize: 18, lineHeight: '1.4' }}>
                 <p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.”</p>
             </div>
 
-            <div style={{ position: 'absolute', left: 657, top: 710, fontSize: 100, fontFamily: "'Impact', sans-serif" }}>
-                <p style={{ position: 'absolute', left: 56.6, top: 0 }}>W</p>
+            <div style={{ position: 'absolute', left: 650, top: 700, fontSize: 100, fontFamily: "'Impact', sans-serif" }}>
                 <p style={{ position: 'absolute', left: -18.6, top: 0 }}>B</p>
-                <p style={{ position: 'absolute', left: 56.6, top: 97.17 }}>P</p>
-                <p style={{ position: 'absolute', left: -18.6, top: 87.69 }}>C</p>
+                <p style={{ position: 'absolute', left: 40, top: 0 }}>W</p>
+                <p style={{ position: 'absolute', left: -18.6, top: 90 }}>C</p>
+                <p style={{ position: 'absolute', left: 40, top: 90 }}>M</p>
             </div>
           </div>
         </motion.div>
