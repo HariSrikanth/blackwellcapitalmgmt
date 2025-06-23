@@ -3,7 +3,7 @@ import { motion, type Easing } from "framer-motion";
 import Image from "next/image";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import { supabase } from "~/lib/supabase";
+import { getSupabaseClient } from "~/lib/supabase";
 
 type Inputs = {
   email: string;
@@ -18,6 +18,7 @@ export default function Contact() {
     setIsSuccess(false);
     setSubmitError(null);
     try {
+      const supabase = getSupabaseClient();
       const { data: responseData, error } = await supabase.from("waitlist").insert({ email: data.email });
       if (error) throw error;
       console.log("Supabase success:", responseData);
