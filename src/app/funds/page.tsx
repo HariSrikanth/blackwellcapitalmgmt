@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, type Easing } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,17 @@ import { TypingAnimation } from "~/components/magicui/typing-animation";
 
 export default function FundsPage() {
   const [selectedFund, setSelectedFund] = useState<'blue' | 'red'>('blue');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const fundData = {
     blue: {
@@ -62,6 +73,221 @@ export default function FundsPage() {
     hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 2.5 } },
   };
+
+  if (isMobile) {
+    return (
+      <div style={{
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        background: '#FFFFFF',
+        overflow: 'auto',
+        position: 'relative',
+        padding: '20px'
+      }}>
+        {/* Mobile Back to Home */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          style={{
+            alignSelf: 'flex-end',
+            marginBottom: '20px'
+          }}
+        >
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <p style={{ fontSize: 16, color: 'black' }}>back to home</p>
+          </Link>
+        </motion.div>
+
+        {/* Mobile Fund Navigation */}
+        <motion.div 
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '30px',
+            marginBottom: '30px'
+          }}
+        >
+          <motion.button
+            onClick={() => setSelectedFund('red')}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              position: 'relative',
+              padding: '10px'
+            }}
+          >
+            <SlotMachineText 
+              text="[red]" 
+              delay={0.5} 
+              charClassName={`text-[24px] font-inter ${selectedFund === 'red' ? 'text-[#880808]' : 'text-[#878787]'}`}
+              enableSlotEffect={false}
+            />
+            <motion.div 
+              className="absolute bottom-0 left-0 h-0.5"
+              style={{ backgroundColor: '#880808', width: '100%' }}
+              initial={{ opacity: selectedFund === 'red' ? 1 : 0 }}
+              animate={{ opacity: selectedFund === 'red' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
+          
+          <motion.button
+            onClick={() => setSelectedFund('blue')}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              position: 'relative',
+              padding: '10px'
+            }}
+          >
+            <SlotMachineText 
+              text="[blue]" 
+              delay={0.6} 
+              charClassName={`text-[24px] font-inter ${selectedFund === 'blue' ? 'text-[#002147]' : 'text-[#878787]'}`}
+              enableSlotEffect={false}
+            />
+            <motion.div 
+              className="absolute bottom-0 left-0 h-0.5"
+              style={{ backgroundColor: '#002147', width: '100%' }}
+              initial={{ opacity: selectedFund === 'blue' ? 1 : 0 }}
+              animate={{ opacity: selectedFund === 'blue' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
+        </motion.div>
+
+        {/* Mobile Fund Image */}
+        <motion.div 
+          key={selectedFund}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            width: '300px',
+            height: '350px',
+            position: 'relative',
+            margin: '0 auto 30px',
+            alignSelf: 'center'
+          }}
+        >
+          <Image 
+            src={currentFund.image} 
+            alt={`${selectedFund} fund image`} 
+            fill 
+            style={{ objectFit: 'contain' }}
+          />
+        </motion.div>
+
+        {/* Mobile Fund Card */}
+        <motion.div 
+          key={`card-${selectedFund}`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{
+            background: 'rgba(128, 128, 128, 0.75)',
+            padding: '30px',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            marginBottom: '20px'
+          }}
+        >
+          {/* Mobile Fund Title */}
+          <div style={{ marginBottom: '20px', minHeight: '38px' }}>
+            <TypingAnimation
+              as="h2"
+              duration={100}
+              delay={500}
+              className="font-medium leading-none tracking-normal"
+              style={{ 
+                fontSize: 32, 
+                fontWeight: 500, 
+                color: currentFund.color,
+                textAlign: 'center'
+              }}
+            >
+              {currentFund.title}
+            </TypingAnimation>
+          </div>
+
+          {/* Mobile Metrics */}
+          <div style={{ marginBottom: '20px', marginTop: '-20px', textAlign: 'center', minHeight: '49px' }}>
+            <TypingAnimation
+              as="p"
+              duration={100}
+              delay={1000}
+              className="font-medium leading-none tracking-normal"
+              style={{ 
+                fontSize: 20, 
+                fontWeight: 500, 
+                color: 'white',
+                marginBottom: '5px'
+              }}
+            >
+              {currentFund.aum}
+            </TypingAnimation>
+            <TypingAnimation
+              as="p"
+              duration={100}
+              delay={1300}
+              className="font-medium leading-none tracking-normal"
+              style={{ 
+                fontSize: 20, 
+                fontWeight: 500, 
+                color: 'white'
+              }}
+            >
+              {currentFund.returns}
+            </TypingAnimation>
+          </div>
+
+          {/* Mobile Thesis */}
+          <motion.div
+            variants={paragraphSlideUp}
+            initial="hidden"
+            animate="visible"
+            style={{ 
+              fontSize: 16, 
+              lineHeight: 1.5, 
+              color: 'white',
+              textAlign: 'left',
+              marginBottom: '20px'
+            }}
+          >
+            <p>{currentFund.thesis}</p>
+          </motion.div>
+
+          {/* Mobile Invest Button */}
+          <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <motion.div
+              whileTap={{ scale: 0.95 }}
+              style={{
+                background: currentFund.color,
+                color: 'white',
+                padding: '12px 24px',
+                textAlign: 'center',
+                fontSize: 16,
+                fontWeight: 500,
+                cursor: 'pointer'
+              }}
+            >
+              invest
+            </motion.div>
+          </Link>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div style={{
@@ -215,9 +441,9 @@ export default function FundsPage() {
       >
         {/* Overlapping Geometric Shapes */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
-          {/* Large Circle */}
+          {/* Large Square */}
           <motion.div
-            key={`circle-${selectedFund}`}
+            key={`square1-${selectedFund}`}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
@@ -225,7 +451,6 @@ export default function FundsPage() {
               position: 'absolute',
               width: '800px',
               height: '800px',
-              borderRadius: '50%',
               background: `${currentFund.color}15`,
               top: '-200px',
               right: '-300px',
@@ -235,9 +460,9 @@ export default function FundsPage() {
           
           
           
-          {/* Small Circle */}
+          {/* Small Square */}
           <motion.div
-            key={`circle2-${selectedFund}`}
+            key={`square2-${selectedFund}`}
             initial={{ opacity: 0, scale: 1.2 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
@@ -245,7 +470,6 @@ export default function FundsPage() {
               position: 'absolute',
               width: '400px',
               height: '400px',
-              borderRadius: '50%',
               background: `${currentFund.color}10`,
               top: '400px',
               right: '-100px',
@@ -255,9 +479,9 @@ export default function FundsPage() {
           
 
           
-          {/* Medium Circle */}
+          {/* Medium Square */}
           <motion.div
-            key={`circle3-${selectedFund}`}
+            key={`square3-${selectedFund}`}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
@@ -265,7 +489,6 @@ export default function FundsPage() {
               position: 'absolute',
               width: '350px',
               height: '350px',
-              borderRadius: '50%',
               background: `${currentFund.color}14`,
               bottom: '-100px',
               left: '100px',
@@ -304,28 +527,13 @@ export default function FundsPage() {
           <Link href="/" style={{ textDecoration: 'none' }}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
               style={{
-                cursor: 'pointer',
-                position: 'relative',
-                height: '35px',
-                display: 'flex',
-                alignItems: 'center',
-                padding: 0
+                cursor: 'pointer'
               }}
-              className="group"
             >
-              <div className="group-hover:text-black transition-colors duration-200">
-                <span className="text-[#878787] group-hover:text-black text-[18px] font-inter transition-colors duration-200">
-                  back to home
-                </span>
-              </div>
-              <motion.div 
-                className="absolute bottom-0 left-0 h-0.5 bg-black"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              />
+              <span className="text-[#878787] text-[18px] font-inter">
+                back to home
+              </span>
             </motion.div>
           </Link>
         </motion.div>
@@ -358,7 +566,7 @@ export default function FundsPage() {
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>
             {/* Fund Title with Typewriter Effect */}
             <motion.div 
-              style={{ marginBottom: '60px' }}
+              style={{ marginBottom: '60px', minHeight: '60px' }}
             >
               <TypingAnimation
                 as="h1"
@@ -384,9 +592,9 @@ export default function FundsPage() {
 
             {/* Stats with Typewriter Effects */}
             <motion.div 
-              style={{ marginBottom: '60px', marginTop: '-20px' }}
+              style={{ marginBottom: '60px', marginTop: '-20px', minHeight: '92px' }}
             >
-              <div style={{ marginBottom: '20px' }}>
+              <div style={{ marginBottom: '20px', minHeight: '43px' }}>
                 <TypingAnimation
                   as="p"
                   duration={100}
@@ -396,7 +604,7 @@ export default function FundsPage() {
                   {currentFund.aum}
                 </TypingAnimation>
               </div>
-              <div>
+              <div style={{ minHeight: '43px' }}>
                 <TypingAnimation
                   as="p"
                   duration={100}

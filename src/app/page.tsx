@@ -3,9 +3,22 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import SlotMachineText from '~/components/SlotMachineText';
 
 export default function HomePage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   // Get current date and format it as MM.DD.YYYY
   const getCurrentDate = () => {
     const now = new Date();
@@ -14,6 +27,126 @@ export default function HomePage() {
     const year = now.getFullYear();
     return `${month}.${day}.${year}`;
   };
+
+  if (isMobile) {
+    return (
+      <div style={{
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#F5F5F5',
+        overflow: 'hidden',
+        position: 'relative',
+        padding: '20px'
+      }}>
+        {/* Mobile Layout */}
+        <motion.div 
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center'
+          }}
+        >
+          {/* Mobile BWCM */}
+          <div style={{ marginBottom: '40px' }}>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+              <SlotMachineText 
+                text="B" 
+                delay={0.1} 
+                charClassName="text-[80px] font-impact font-black" 
+                slotSpeed={25}
+                cyclingColor="#666666"
+                finalColor="#000000"
+                slotUntilTime={0.75}
+              />
+              <SlotMachineText 
+                text="W" 
+                delay={0.2} 
+                charClassName="text-[80px] font-impact font-black" 
+                slotSpeed={25}
+                cyclingColor="#666666"
+                finalColor="#000000"
+                slotUntilTime={1.0}
+              />
+            </div>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '-5px' }}>
+              <SlotMachineText 
+                text="C" 
+                delay={0.3} 
+                charClassName="text-[80px] font-impact font-black" 
+                slotSpeed={25}
+                cyclingColor="#666666"
+                finalColor="#000000"
+                slotUntilTime={1.25}
+              />
+              <SlotMachineText 
+                text="M" 
+                delay={0.4} 
+                charClassName="text-[80px] font-impact font-black" 
+                slotSpeed={25}
+                cyclingColor="#666666"
+                finalColor="#000000"
+                slotUntilTime={1.5}
+              />
+            </div>
+          </div>
+
+          {/* Mobile Company Name */}
+          <div style={{ marginBottom: '40px', textAlign: 'center' }}>
+            <div><SlotMachineText text="Blackwell" delay={0.55} charClassName="text-black text-[24px] font-inter" enableSlotEffect={false} /></div>
+            <div><SlotMachineText text="Capital" delay={0.6} charClassName="text-black text-[24px] font-inter" enableSlotEffect={false} /></div>
+            <div><SlotMachineText text="Management" delay={0.65} charClassName="text-black text-[24px] font-inter" enableSlotEffect={false} /></div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
+            <Link href="/thesis" style={{ textDecoration: 'none' }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{ 
+                  cursor: 'pointer'
+                }}
+              >
+                <SlotMachineText text="[THESIS]" delay={0.7} charClassName="text-black text-[20px] font-inter" enableSlotEffect={false} />
+              </motion.div>
+            </Link>
+            <Link href="/funds" style={{ textDecoration: 'none' }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{ 
+                  cursor: 'pointer'
+                }}
+              >
+                <SlotMachineText text="[FUNDS]" delay={0.75} charClassName="text-black text-[20px] font-inter" enableSlotEffect={false} />
+              </motion.div>
+            </Link>
+            <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{ 
+                  cursor: 'pointer'
+                }}
+              >
+                <SlotMachineText text="[CONTACT]" delay={0.8} charClassName="text-black text-[20px] font-inter" enableSlotEffect={false} />
+              </motion.div>
+            </Link>
+          </div>
+
+          {/* Mobile Date */}
+          <div style={{ marginTop: '40px' }}>
+            <SlotMachineText text={getCurrentDate()} delay={1.05} charClassName="text-black text-[16px] font-inter" />
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div style={{

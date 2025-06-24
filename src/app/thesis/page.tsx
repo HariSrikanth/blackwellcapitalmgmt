@@ -2,9 +2,22 @@
 import { motion, type Easing } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { TypingAnimation } from "~/components/magicui/typing-animation";
 
 export default function ThesisPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   const sheetVariants = {
     hidden: { y: '100%' },
     visible: { y: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as Easing } },
@@ -52,6 +65,130 @@ export default function ThesisPage() {
   const largeFontSize = 125;
   const mediumFontSize = 20;
   const smallFontSize = 15;
+
+  if (isMobile) {
+    return (
+      <div style={{
+        background: '#000000',
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontFamily: "'Helvetica Neue', sans-serif",
+        padding: '20px',
+        boxSizing: 'border-box'
+      }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            maxWidth: '350px',
+            width: '100%'
+          }}
+        >
+          {/* Mobile Back to Home */}
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            style={{ alignSelf: 'flex-end', marginBottom: '20px' }}
+          >
+            <Link href="/" style={{ textDecoration: 'none' }}>
+              <p style={{ fontSize: 16, color: '#FFFFFF' }}>back to home</p>
+            </Link>
+          </motion.div>
+
+          {/* Mobile Title */}
+          <motion.div
+            variants={sheetVariants}
+            initial="hidden"
+            animate="visible"
+            style={{
+              background: 'white',
+              padding: '30px',
+              marginBottom: '30px',
+              width: '100%'
+            }}
+          >
+            <p style={{ fontSize: 24, fontWeight: 'bold', marginBottom: '20px', color: 'black' }}>THESIS</p>
+            <p style={{ fontSize: 14, color: 'black', marginBottom: '30px' }}>invest with insight & confidence</p>
+            
+            {/* Mobile Animated Text */}
+            <div style={{ color: 'black', marginBottom: '30px', minHeight: '92px' }}>
+              <TypingAnimation
+                as="p"
+                duration={100}
+                delay={1000}
+                className="font-medium leading-tight tracking-normal"
+                style={{ fontSize: 36, fontWeight: 500, marginBottom: '10px' }}
+              >
+                be different
+              </TypingAnimation>
+              <TypingAnimation
+                as="p"
+                duration={100}
+                delay={2000}
+                className="font-medium leading-tight tracking-normal"
+                style={{ fontSize: 36, fontWeight: 500, marginBottom: '10px' }}
+              >
+                and be correct
+              </TypingAnimation>
+            </div>
+
+            {/* Mobile Quote */}
+            <motion.div
+              variants={textFadeInUp}
+              initial="hidden"
+              animate="visible"
+              style={{ fontSize: 14, lineHeight: '1.4', color: 'black', marginBottom: '20px' }}
+            >
+              <p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.&quot;</p>
+            </motion.div>
+
+            {/* Mobile BWCM */}
+            <motion.div
+              variants={textFadeInUp}
+              initial="hidden"
+              animate="visible"
+              style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}
+            >
+              <div style={{ fontSize: 40, fontFamily: "'Impact', sans-serif", color: 'black' }}>
+                <div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
+                  <span>B</span>
+                  <span>W</span>
+                </div>
+                <div style={{ display: 'flex', gap: '5px', marginTop: '-5px' }}>
+                  <span>C</span>
+                  <span>M</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile Image */}
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            style={{
+              width: '250px',
+              height: '300px',
+              position: 'relative'
+            }}
+          >
+            <Image src="/images/thesis-image.png" alt="Thesis page image" fill style={{ objectFit: 'cover' }} />
+          </motion.div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div style={{
@@ -144,7 +281,7 @@ export default function ThesisPage() {
             <motion.p initial="hidden" animate="visible" variants={textFadeInUp} style={{ position: 'absolute', left: 32, top: 4 + (4 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>think</motion.p>
             <motion.p initial="hidden" animate="visible" variants={textFadeInUp} style={{ position: 'absolute', left: 27, top: 4 + (8 * lineHeight) - smallFontSize - bottomPadding, fontSize: smallFontSize }}>speed</motion.p>
             
-            <div style={{ position: 'absolute', top: 0, left: 0, fontSize: largeFontSize, fontWeight: '500' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, fontSize: largeFontSize, fontWeight: '500', width: '100%', height: '100%' }}>
               <TypingAnimation
                 as="p"
                 duration={100}

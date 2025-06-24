@@ -2,7 +2,7 @@
 import { motion, type Easing } from "framer-motion";
 import Image from "next/image";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSupabaseClient } from "~/lib/supabase";
 
 type Inputs = {
@@ -13,6 +13,17 @@ export default function Contact() {
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<Inputs>();
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSuccess(false);
@@ -74,6 +85,75 @@ export default function Contact() {
           },
       },
   };
+
+  if (isMobile) {
+    return (
+      <motion.div
+        className="bg-white relative w-screen min-h-screen overflow-auto font-inter"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        style={{ padding: '20px' }}
+      >
+        <motion.div 
+          className="text-center mb-8"
+          variants={itemVariants}
+        >
+          <h1 className="text-[48px] font-['Helvetica_Neue:Regular',_sans-serif] text-black">Contact</h1>
+        </motion.div>
+
+        <motion.div 
+          className="space-y-8"
+          variants={itemVariants}
+        >
+          <div className="text-center">
+            <p className="text-[18px] mb-4">to invest with us</p>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center space-y-4">
+              <div className="w-full max-w-[300px]">
+                <input
+                  {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" } })}
+                  placeholder="enter your email"
+                  className="text-[18px] text-[#878787] bg-transparent border-b-2 border-[#878787] w-full focus:outline-none text-center"
+                />
+                <div className="mt-2">
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+                  {isSuccess && <p className="text-green-500 text-sm">Thank you for joining the waitlist!</p>}
+                  {submitError && <p className="text-red-500 text-sm">{submitError}</p>}
+                </div>
+              </div>
+              <button type="submit" disabled={isSubmitting}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </form>
+            <p className="text-[16px] mt-4 max-w-[300px] mx-auto">
+              and one of our representatives will reach out from
+              investments@blackwellcapital.com
+            </p>
+          </div>
+
+          <div className="text-center border-t pt-8">
+            <p className="text-[18px] mb-4">to work with us</p>
+            <p className="text-[16px] max-w-[300px] mx-auto">
+              send a copy of your resume and a brief cover letter detailing your background and alignment to recruiting@blackwellcapital.com
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Mobile simplified image */}
+        <motion.div 
+          className="mt-12 flex justify-center"
+          variants={imageContainerVariants}
+        >
+          <div className="w-[300px] h-[150px] relative">
+            <Image src="/images/image6.png" alt="Contact" fill style={{objectFit: "contain"}}/>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div

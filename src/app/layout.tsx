@@ -6,7 +6,7 @@ import { Geist, Inter, Archivo_Black, Anton } from "next/font/google";
 export const metadata: Metadata = {
   title: "Blackwell Capital Management",
   description: "Blackwell Capital Management - Investment Management",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" }],
 };
 
 const geist = Geist({
