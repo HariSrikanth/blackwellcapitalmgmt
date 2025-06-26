@@ -34,7 +34,7 @@ export default function FundsPage() {
     },
     red: {
       title: '[red]',
-      thesis: 'A traditional finance fund managed by deep technology experts with extensive experience at multibillion-dollar institutions. We leverage cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established markets.',
+      thesis: 'We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.',
       aum: '75M+ AUM',
       returns: '30%+ Return',
       substack: 'https://redstacklink.com',
