@@ -335,7 +335,7 @@ export default function ThesisPage() {
               initial="hidden"
               animate="visible"
             >
-                <p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.”</p>
+                <p>&quot;We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.</p>
             </motion.div>
 
             <motion.div initial="hidden" animate="visible" variants={textFadeInUp} style={{ position: 'absolute', left: 650, top: 700, fontSize: 100, fontFamily: "'Impact', sans-serif" }}>
