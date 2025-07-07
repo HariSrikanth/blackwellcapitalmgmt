@@ -149,7 +149,7 @@ export default function ThesisPage() {
               animate="visible"
               style={{ fontSize: 14, lineHeight: '1.4', color: 'black', marginBottom: '20px' }}
             >
-              <p>&quot;We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.&quot;</p>
+              <p>&quot;We invest in traditional and decentralized asset classes, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.&quot;</p>
             </motion.div>
 
             {/* Mobile BWCM */}
@@ -335,7 +335,7 @@ export default function ThesisPage() {
               initial="hidden"
               animate="visible"
             >
-                <p>&quot;We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.&quot;</p>
+                <p>&quot;We invest in traditional and decentralized asset classes, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.&quot;</p>
             </motion.div>
 
             <motion.div initial="hidden" animate="visible" variants={textFadeInUp} style={{ position: 'absolute', left: 650, top: 700, fontSize: 100, fontFamily: "'Impact', sans-serif" }}>
