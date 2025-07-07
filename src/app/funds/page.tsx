@@ -25,8 +25,8 @@ export default function FundsPage() {
     blue: {
       title: '[blue]',
       thesis: 'A Web3-focused fund specializing in secure staking protocols and systematic yield farming strategies. Our approach provides cryptocurrency exposure through institutional-grade risk management, avoiding the volatility of speculative tokens while maintaining upside potential in the digital asset ecosystem.',
-      aum: '200k+ AUM',
-      returns: '25%+ Return',
+      aum: '200k AUM Pledged',
+      returns: 'Asymmetric Risk/Reward',
       substack: 'https://substacklink.com',
       color: '#002147',
       accentColor: '#001122',
@@ -35,8 +35,8 @@ export default function FundsPage() {
     red: {
       title: '[red]',
       thesis: 'We invest in exceptional public companies with durable competitive advantages and compelling secular tailwinds. Through rigorous fundamental analysis and intentional research, we identify high-quality businesses positioned for sustained growth before broader market recognition.',
-      aum: '500k AUM',
-      returns: '30%+ Return',
+      aum: '500k AUM Pledged',
+      returns: 'High-Quality, Compounding Growth',
       substack: 'https://redfund.substack.com',
       color: '#880808',
       accentColor: '#660606',
