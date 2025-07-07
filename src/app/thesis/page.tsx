@@ -149,7 +149,7 @@ export default function ThesisPage() {
               animate="visible"
               style={{ fontSize: 14, lineHeight: '1.4', color: 'black', marginBottom: '20px' }}
             >
-              <p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.&quot;</p>
+              <p>&quot;We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.&quot;</p>
             </motion.div>
 
             {/* Mobile BWCM */}
