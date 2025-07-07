@@ -37,7 +37,7 @@ export default function FundsPage() {
       thesis: 'We invest in exceptional public companies with durable competitive advantages and compelling secular tailwinds. Through rigorous fundamental analysis and intentional research, we identify high-quality businesses positioned for sustained growth before broader market recognition.',
       aum: '500k AUM',
       returns: '30%+ Return',
-      substack: 'https://redfund.substack.com/',
+      substack: 'https://redfund.substack.com',
       color: '#880808',
       accentColor: '#660606',
       image: '/images/imageRed.png'
