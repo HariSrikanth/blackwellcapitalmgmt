@@ -34,7 +34,7 @@ export default function FundsPage() {
     },
     red: {
       title: '[red]',
-      thesis: 'We invest in public capital markets, leveraging cutting-edge research and academic partnerships to identify emerging opportunities at the intersection of technology and established sectors.',
+      thesis: 'We invest in exceptional public companies with durable competitive advantages and compelling secular tailwinds. Through rigorous fundamental analysis and intentional research, we identify high-quality businesses positioned for sustained growth before broader market recognition.',
       aum: '500k AUM',
       returns: '30%+ Return',
       substack: 'https://redstacklink.com',
