@@ -36,7 +36,7 @@ export default function FundsPage() {
       title: '[red]',
       thesis: 'We invest in exceptional public companies with durable competitive advantages and compelling secular tailwinds. Through rigorous fundamental analysis and intentional research, we identify high-quality businesses positioned for sustained growth before broader market recognition.',
       aum: '500k AUM Pledged',
-      returns: 'Compounding, Quality Growth',
+      returns: 'Quality Compounders',
       substack: 'https://redfund.substack.com',
       color: '#880808',
       accentColor: '#660606',
