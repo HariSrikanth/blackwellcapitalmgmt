@@ -130,14 +130,14 @@ export default function Contact() {
             </form>
             <p className="text-[16px] mt-4 max-w-[300px] mx-auto">
               and one of our representatives will reach out from
-              investments@blackwellcapital.com
+              investments@blackwell.fund
             </p>
           </div>
 
           <div className="text-center border-t pt-8">
             <p className="text-[18px] mb-4">to work with us</p>
             <p className="text-[16px] max-w-[300px] mx-auto">
-              send a copy of your resume and a brief cover letter detailing your background and alignment to recruiting@blackwellcapital.com
+              send a copy of your resume to recruiting@blackwellcapital.fund
             </p>
           </div>
         </motion.div>
@@ -219,7 +219,7 @@ export default function Contact() {
         <div className="text-right relative">
           <p className="text-[18px] w-[300px]">
             and one of our representatives will reach out from
-            investments@blackwellcapital.com
+            investments@blackwell.fund
           </p>
         </div>
       </motion.div>
@@ -234,7 +234,7 @@ export default function Contact() {
 
         <div className="text-right">
           <p className="text-[18px] w-[300px]">
-            send a copy of your resume and a brief cover letter detailing your background and alignment to recruiting@blackwellcapital.com
+            send a copy of your resume to recruiting@blackwellcapital.fund
           </p>
         </div>
       </motion.div>
