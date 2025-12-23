@@ -4,15 +4,12 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
-        impact: ["Impact", "var(--font-anton)", "sans-serif"],
-        "archivo-black": ["var(--font-archivo-black)", "sans-serif"],
-        anton: ["var(--font-anton)", "sans-serif"],
+        sans: ["var(--font-judson)", "serif"],
+        judson: ["var(--font-judson)", "serif"],
       },
     },
   },
   plugins: [],
 };
 
-export default config; 
+export default config;

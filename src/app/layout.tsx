@@ -1,7 +1,8 @@
 import "~/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist, Inter, Archivo_Black, Anton } from "next/font/google";
+import { Judson } from "next/font/google";
+import { Providers } from "~/components/Providers";
 
 export const metadata: Metadata = {
   title: "Blackwell Capital Management",
@@ -9,35 +10,21 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" }],
 };
 
-const geist = Geist({
+const judson = Judson({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const archivoBlack = Archivo_Black({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-archivo-black",
-});
-
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-anton",
+  weight: ["400", "700"],
+  variable: "--font-judson",
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${inter.variable} ${archivoBlack.variable} ${anton.variable}`}>
-      <body style={{ margin: 0, padding: 0, fontFamily: 'Inter, sans-serif' }}>
-        {children}
+    <html lang="en" className={judson.variable}>
+      <body className="m-0 p-0 antialiased" style={{ fontFamily: "Judson, serif" }}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
