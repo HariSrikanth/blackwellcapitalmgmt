@@ -1,93 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TransitionLink } from "~/components/TransitionLink";
+import Link from "next/link";
 
 export default function WhoWeArePage() {
   return (
-    <div className="min-h-screen w-full flex flex-col" style={{ backgroundColor: "#FFFFFF" }}>
-      {/* Header */}
-      <motion.header 
-        className="w-full px-8 py-5 flex items-center justify-between"
-        initial={{ opacity: 0, y: -20 }}
+    <div style={{
+      background: '#F5F5F5',
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontFamily: "'Helvetica Neue', sans-serif",
+    }}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        style={{ textAlign: 'center' }}
       >
-        <TransitionLink 
-          href="/"
-          className="flex items-center gap-2 hover:opacity-60 transition-opacity duration-200"
-        >
-          {/* Line with arrow */}
-          <div className="flex items-center">
-            <div className="w-16 h-[1px]" style={{ backgroundColor: "#000000" }} />
-            <div 
-              style={{ 
-                width: 0, 
-                height: 0, 
-                borderTop: "4px solid transparent",
-                borderBottom: "4px solid transparent",
-                borderLeft: "6px solid #000000",
-                marginLeft: "-1px"
-              }} 
-            />
-          </div>
-          <span 
-            className="text-xl tracking-tight"
-            style={{ 
-              color: "#000000", 
-              fontWeight: 700,
-              fontFamily: "Inter, sans-serif"
-            }}
-          >
-            Blackwell Capital Management
-          </span>
-        </TransitionLink>
-      </motion.header>
-
-      {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center">
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h1 
-            className="text-6xl font-light mb-8" 
-            style={{ color: "#000000", fontFamily: "Inter, sans-serif" }}
-          >
-            Who We Are
-          </h1>
-          <p 
-            className="text-lg max-w-md mx-auto" 
-            style={{ color: "rgba(0,0,0,0.6)", fontFamily: "Inter, sans-serif" }}
-          >
-            Coming soon
-          </p>
-          <TransitionLink 
-            href="/"
-            className="inline-block mt-12 text-sm hover:opacity-100 transition-opacity duration-200"
-            style={{ color: "rgba(0,0,0,0.4)", fontFamily: "Inter, sans-serif" }}
-          >
-            ← Back to home
-          </TransitionLink>
-        </motion.div>
-      </main>
-
-      {/* Footer */}
-      <motion.footer 
-        className="w-full py-3 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <p 
-          className="text-xs" 
-          style={{ color: "rgba(0,0,0,0.5)", fontFamily: "Inter, sans-serif" }}
-        >
-          Copyright @ Blackwell Capital Management LLC, 2026
+        <h1 style={{ fontSize: 60, fontWeight: 300, color: '#000000', marginBottom: 20 }}>
+          Who We Are
+        </h1>
+        <p style={{ fontSize: 18, color: '#666666', marginBottom: 40 }}>
+          Coming soon
         </p>
-      </motion.footer>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <motion.p
+            whileHover={{ opacity: 0.6 }}
+            style={{ fontSize: 16, color: '#000000' }}
+          >
+            ← back to home
+          </motion.p>
+        </Link>
+      </motion.div>
     </div>
   );
 }
