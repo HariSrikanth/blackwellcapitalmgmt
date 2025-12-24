@@ -8,14 +8,16 @@ interface TransitionLinkProps {
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-export function TransitionLink({ href, children, className, style }: TransitionLinkProps) {
+export function TransitionLink({ href, children, className, style, onClick }: TransitionLinkProps) {
   const { triggerTransition, isTransitioning } = usePageTransition();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (!isTransitioning) {
+      onClick?.();
       triggerTransition(href);
     }
   };
