@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={judson.variable}>
       <body className="m-0 p-0 antialiased" style={{ fontFamily: "Judson, serif" }}>
         <Providers>
-          {children}
+        {children}
         </Providers>
       </body>
     </html>
